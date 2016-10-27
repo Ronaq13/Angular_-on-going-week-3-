@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="confusionApp" lang="en"><head>
+<html ng-app="confusionApp" lang="en">
+
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +10,7 @@
          content must come *after* these tags -->
     <title>Ristorante Con Fusion: Menu</title>
     <!-- Bootstrap -->
-   <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="styles/bootstrap-social.css" rel="stylesheet">
@@ -41,8 +43,8 @@
                     </div>
                     <div class="media-body">
                         <h2 class="media-heading ">{{dishCtrl.dish.name}}
-                                    <span class="label label-danger ">{{dishCtrl.dish.label}}</span>
-                                    <span class="badge ">{{dishCtrl.dish.price | currency}}</span></h2>
+                            <span class="label label-danger ">{{dishCtrl.dish.label}}</span>
+                            <span class="badge ">{{dishCtrl.dish.price | currency}}</span></h2>
                         <p>{{dishCtrl.dish.description}}</p>
                     </div>
                 </div>
@@ -68,58 +70,121 @@
             </div>
         </div>
 
+        <!-- form -->
+        <div class="row row-content">
+            <div class="col-xs-12">
+
+                <!-- Form -->
+                <form class="form-horizontal" role="form">
+
+                    <!-- name -->
+                    <div class="form-group">
+                        <label for="yourName" class="col-sm-2 control-label">Your Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="yourName" name="yourName" placeholder="Enter Your Name">
+                        </div>
+                    </div>
+                    <!-- Rating -->
+                    <div class="form-group">
+
+                        <label for="yourName" class="col-sm-2 control-label">Number of Stars</label>
+
+                        <div class="col-sm-10">
+                            <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+                            </label>
+                            <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+                            </label>
+                            <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+                            </label>
+                            <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 4
+                            </label>
+                            <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" checked> 5
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Text Area -->
+                    <div class="form-group">
+                        <label for="feedback" class="col-sm-2 control-label">Your Feedback</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="feedback" name="feedback" rows="12"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit button -->
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit Comment</button>
+                        </div>
+                    </div>
+
+
+                </form>
+                <!-- Forms Ends here -->
+            </div>
+        </div>
+
     </div>
 
-  <script src="../bower_components/angular/angular.min.js"></script>
-<script src="Ristorante%20Con%20Fusion:%20Menu_files/angular_002.xml"></script>
+    </div>
 
-<script>
-    var app = angular.module('confusionApp', []);
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="Ristorante%20Con%20Fusion:%20Menu_files/angular_002.xml"></script>
 
-    app.controller('dishDetailController', function() {
+    <script>
+        var app = angular.module('confusionApp', []);
 
-        this.filtText = '';
-        var dish = {
-            name: 'Uthapizza',
-            image: 'images/uthapizza.png',
-            category: 'mains',
-            label: 'Hot',
-            price: '4.99',
-            description: 'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
-            comments: [{
-                    rating: 5,
-                    comment: "Imagine all the eatables, living in conFusion!",
-                    author: "John Lemon",
-                    date: "2012-10-16T17:57:28.556094Z"
-                }, {
-                    rating: 4,
-                    comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-                    author: "Paul McVites",
-                    date: "2014-09-05T17:57:28.556094Z"
-                }, {
-                    rating: 3,
-                    comment: "Eat it, just eat it!",
-                    author: "Michael Jaikishan",
-                    date: "2015-02-13T17:57:28.556094Z"
-                }, {
-                    rating: 4,
-                    comment: "Ultimate, Reaching for the stars!",
-                    author: "Ringo Starry",
-                    date: "2013-12-02T17:57:28.556094Z"
-                }, {
-                    rating: 2,
-                    comment: "It's your birthday, we're gonna party!",
-                    author: "25 Cent",
-                    date: "2011-12-02T17:57:28.556094Z"
-                }
+        app.controller('dishDetailController', function() {
 
-            ]
-        };
+            this.filtText = '';
+            var dish = {
+                name: 'Uthapizza',
+                image: 'images/uthapizza.png',
+                category: 'mains',
+                label: 'Hot',
+                price: '4.99',
+                description: 'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
+                comments: [{
+                        rating: 5,
+                        comment: "Imagine all the eatables, living in conFusion!",
+                        author: "John Lemon",
+                        date: "2012-10-16T17:57:28.556094Z"
+                    }, {
+                        rating: 4,
+                        comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
+                        author: "Paul McVites",
+                        date: "2014-09-05T17:57:28.556094Z"
+                    }, {
+                        rating: 3,
+                        comment: "Eat it, just eat it!",
+                        author: "Michael Jaikishan",
+                        date: "2015-02-13T17:57:28.556094Z"
+                    }, {
+                        rating: 4,
+                        comment: "Ultimate, Reaching for the stars!",
+                        author: "Ringo Starry",
+                        date: "2013-12-02T17:57:28.556094Z"
+                    }, {
+                        rating: 2,
+                        comment: "It's your birthday, we're gonna party!",
+                        author: "25 Cent",
+                        date: "2011-12-02T17:57:28.556094Z"
+                    }
 
-        this.dish = dish;
+                ]
+            };
 
-    });
-</script>
+            this.dish = dish;
+
+        });
+    </script>
 
 
-</body></html>
+</body>
+
+</html>
