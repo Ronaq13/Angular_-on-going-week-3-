@@ -2,6 +2,9 @@
 
 angular.module('confusionApp')
     .factory('menuFactory', function() {
+
+        var menufac = {};
+
         var dishes = [{
                 name: 'Uthapizza',
                 image: 'images/uthapizza.png',
@@ -159,4 +162,15 @@ angular.module('confusionApp')
                 ]
             }
         ];
+
+        menufac.getDishes = function() {
+            return dishes; // dishes is an 'array object' defined above  
+        };
+        menufac.getDish = function(index) {
+            return dishes[index];
+        };
+
+        return menufac;
+
+
     });
