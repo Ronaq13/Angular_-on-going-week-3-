@@ -69,24 +69,42 @@ angular.module('confusionApp')
 
 .controller('DishCommentController', ['$scope', function($scope) {
 
-    $scope.commentFeedback = {
-        rating: 5,
-        comment: "",
-        author: "",
-        date: 0
-    };
-
-    $scope.submitComment = function() {
-        $scope.commentFeedback.date = new Date().toISOString();
-        $scope.dish.comments.push($scope.commentFeedback);
         $scope.commentFeedback = {
             rating: 5,
             comment: "",
             author: "",
             date: 0
         };
-        $scope.commentForm.$setPristine();
-    };
+
+        $scope.submitComment = function() {
+            $scope.commentFeedback.date = new Date().toISOString();
+            $scope.dish.comments.push($scope.commentFeedback);
+            $scope.commentFeedback = {
+                rating: 5,
+                comment: "",
+                author: "",
+                date: 0
+            };
+            $scope.commentForm.$setPristine();
+        };
+    }])
+    // implement the IndexController and About Controller here
+    .controller('AboutController', ['$scope', '$stateParams', 'corporateFactory', function($scope, $stateParams, corporateFactory) {
+        var leader = corporateFactory.getLeaders();
+        $scope.leader = leader;
+        $scope.s = 2;
+    }])
+
+.controller('IndexController', ['$scope', '$stateParams', 'menuFactory', 'corporateFactory', function($scope, $stateParams, corporateFactory) {
+    // featured dish
+    var featuredDish = menuFactory.getDish(0);
+    $scope.featuredDish = featuredDish;
+    //promotion
+    var promotion = menuFactory.getPromotion(0);
+    $scope.promotion = promotion;
+    //Executive chef
+    var exChef = corporateFactory.getLeader(3);
+    $scope.exChef = exChef;
 }])
 
 ;
