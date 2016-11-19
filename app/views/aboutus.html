@@ -54,7 +54,16 @@
         <div class="col-xs-12 col-sm-9">
             <h2>Corporate Leadership</h2>
             <ul class="media-list">
-                <h4>{{s}}</h4>
+                <li class="media" ng-repeat="leader in leaders">
+                    <div class="media-left media-middle">
+                        <a ui-sref="app.aboutus({id: leader._id})"> <img class="media-object img-thumbnail" ng-src="{{leader.image}}" alt={{leader.name}}> </a>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">{{leader.name}}</h2>
+                        <h3 class="media-heading">{{leader.designation}}</h3>
+                        <p>{{leader.description}}</p>
+                    </div>
+                </li>
             </ul>
 
         </div>

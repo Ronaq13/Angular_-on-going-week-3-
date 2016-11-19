@@ -245,7 +245,7 @@ angular.module('confusionApp')
         return leadership[index];
     };
     // Remember this is a factory not a service
-
+    return corpfac;
 
 })
 
